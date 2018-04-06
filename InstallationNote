@@ -1,0 +1,39 @@
+Setting up Ubuntu 16.04 + CUDA + GPU 
+
+Mostly based on:
+https://www.pyimagesearch.com/2017/09/27/setting-up-ubuntu-16-04-cuda-gpu-for-deep-learning-with-python/
+
+Note: Step 2, no need to turn off XServer and stuff, only need to follow John comment and do the installation of CUDA based on 
+https://www.youtube.com/watch?v=FK1y7XQuhp0
+
+John:
+
+I have a question regarding ubuntu 16.04 and loading the Nvidia CUDA driver.
+it seems to me that the instructions for loading the nvidia driver are for ubuntu 14, and below, which is the exact method I had to always use before to get the nvidia driver loaded and use CUDA
+
+With Ubuntu 16.04 , all you need to do is go to Software & Updates -> Additional Drivers, and the Nvidia binary driver shows up , just load it , and thats it , no need to turn off X or go into the command line, turn off nouveau , lightdm stop/start etc . CUDA and all its examples once compiled work fine with no issue. At least thats what I did months ago and have had no issues using the GPU and CUDA. After a reboot all the latest / new Nvidia drivers as released also show up tin Additiona Drivers, to load if you want to . The driver that initially shows up is 381.22 but after that later drivers up to 384.90 show up to easily load.
+
+Not sure if Im missing something loading the Nvidia driver with this easy method
+
+Other methods might lead to several problems (mostly related to NVIDIA drivers installation), this link might help with those issues:
+https://www.linkedin.com/pulse/installing-nvidia-cuda-80-ubuntu-1604-linux-gpu-new-victor
+
+Should install CUDA 8.0 + TensorFlow 1.4
+
+
+Setting Gym + Mujoco:
+https://zhuanlan.zhihu.com/p/34195184
+
+Error 1: sudo apt-get install libglew-dev
+
+Error 2: sudo cp mjpro150/bin/libglfw.so.3 /usr/local/lib
+
+============================================
+NOTES
+
+Mujoco 1.3.1 done and tested
+gym 0.9.6 -------- sudo pip3 install -e '.[mujoco]' does not work
+mujoco-py 0.5.7 done
+python 3.5.2 done
+Tensorflow 1.4 done
+CUDA 8.0 done
