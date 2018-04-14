@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.contrib.framework import get_variables
 
 from .utils import get_timestamp
-
+import matplotlib.pyplot as plt
 class NAF(object):
   def __init__(self, sess,
                env, strategy, pred_network, target_network, stat,
@@ -191,6 +191,9 @@ class NAF(object):
 
       self.target_network.soft_update_from(self.pred_network)
 
+      #plt.plot(a, self.rewards)
+      #plt.ylabel('reward')
+      #plt.show()
       logger.debug("q: %s, v: %s, a: %s, l: %s" \
         % (np.mean(q), np.mean(v), np.mean(a), np.mean(l)))
 

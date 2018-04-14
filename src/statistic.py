@@ -3,6 +3,10 @@ import numpy as np
 import tensorflow as tf
 from logging import getLogger
 
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import plot, draw, show
+from drawnow import drawnow
+
 logger = getLogger(__name__)
 
 class Statistic(object):
@@ -61,8 +65,50 @@ class Statistic(object):
       avg_r = np.mean(self.ep_rewards)
       total_r = np.sum(self.ep_rewards)
 
+      """def make_fig():
+      	plt.plot.append(x, y, marker='o', markersize=3, color="red") 
+
+      plt.ion()  # enable interactivity
+      fig = plt.figure()  # make a figure
+
+      x = list()
+      y = list()
+
+      temp_y = np.random.random()
+      x.append(self.t)
+      y.append(total_r)  # or any arbitrary update to your figure's data
+      drawnow(make_fig)"""     
+      
+      #plt.plot(self.t, total_r)
+      #plt.ylabel('reward')
+      #plt.show()
+
+      #plt.plot([self.t], [total_r], marker='o', markersize=3, color="red")
+      #plt.hold(True)
+      #draw()
+      #print ('continue computation')
+
+      # at the end call show to ensure window won't close.
+      #show(block=False)
+      file = open("/home/labuser/DeepLearning/src/reward.txt", "a")
+
+      file.write("%f %f" % (self.t, total_r))
+      file.write("\n") 
+      
+      file.close()
+
+      file = open("/home/labuser/DeepLearning/src/Qvalue.txt", "a")
+
+      file.write("%f %f" % (self.t, avg_q))
+      file.write("\n") 
+      
+      file.close()
+      #with open('data.txt', 'a') as a:
+      #  a.write("%f %f" % (self.t, total_r))
+
       logger.info('t: %d, R: %.3f, r: %.3f, q: %.3f, v: %.3f, a: %.3f, l: %.3f' \
           % (self.t, total_r, avg_r, avg_q, avg_q, avg_a, avg_l))
+
 
       if self.max_avg_r == None:
         self.max_avg_r = avg_r

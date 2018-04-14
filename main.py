@@ -13,6 +13,7 @@ flags = tf.app.flags
 
 # environment
 flags.DEFINE_string('env_name', 'Pendulum-v0', 'name of environment')
+#flags.DEFINE_string('env_name', 'Reacher-v1', 'name of environment')
 
 # network
 flags.DEFINE_string('hidden_dims', '[100, 100]', 'dimension of hidden layers')

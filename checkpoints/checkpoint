@@ -1,3 +1,4 @@
-model_checkpoint_path: "/home/labuser/DeepLearning/checkpoints/-7804"
-all_model_checkpoint_paths: "/home/labuser/DeepLearning/checkpoints/-7204"
-all_model_checkpoint_paths: "/home/labuser/DeepLearning/checkpoints/-7804"
+model_checkpoint_path: "/home/labuser/DeepLearning/checkpoints/-17448"
+all_model_checkpoint_paths: "/home/labuser/DeepLearning/checkpoints/-16998"
+all_model_checkpoint_paths: "/home/labuser/DeepLearning/checkpoints/-17148"
+all_model_checkpoint_paths: "/home/labuser/DeepLearning/checkpoints/-17448"

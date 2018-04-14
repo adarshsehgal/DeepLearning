@@ -12,10 +12,12 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         reward_dist = - np.linalg.norm(vec)
         reward_ctrl = - np.square(a).sum()
         reward = reward_dist + reward_ctrl
+        #reward = - np.linalg.norm(vec)
+        #print(vec)
         self.do_simulation(a, self.frame_skip)
         ob = self._get_obs()
 
-        if (abs(reward_dist) < 0.05):
+        if (abs(reward_dist) < 0.09):
             done = True
         else:
             done = False
@@ -25,16 +27,17 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         self.viewer.cam.trackbodyid = 13
         self.viewer.cam.elevation = -40
         self.viewer.cam.distance = self.model.stat.extent * 1.5
+        #self.viewer.cam.trackbodyid = 0
 
     def reset_model(self):
-        qpos = self.init_qpos
+        qpos = self.np_random.uniform(low=-0.1, high=0.1, size=self.model.nq) + self.init_qpos
         while True:
-            self.goal = self.np_random.uniform(low=-.1, high=.1, size=3)
+            self.goal = self.np_random.uniform(low=-.2, high=.2, size=2)
             if np.linalg.norm(self.goal) < 2:
                 break
-        qpos[-3:] = self.goal
-        qvel = self.init_qvel
-        qvel[-3:] = 0
+        qpos[-2:] = self.goal
+        qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)
+        qvel[-2:] = 0
         self.set_state(qpos, qvel)
         return self._get_obs()
 
