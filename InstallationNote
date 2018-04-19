@@ -31,12 +31,12 @@ Error 2: sudo cp mjpro150/bin/libglfw.so.3 /usr/local/lib
 ============================================
 NOTES
 
-Mujoco 1.3.1 done and tested
-gym 0.9.6 -------- sudo pip3 install -e '.[mujoco]' does not work
-mujoco-py 0.5.7 done
+Mujoco 1.3.1 
+gym 0.9.6 -------- done
+mujoco-py 0.5.7 
 python 3.5.2 done
 Tensorflow 1.4 done
-CUDA 8.0 done
+CUDA 8.0 
 
 ===============================================
 

@@ -5,7 +5,7 @@ from logging import getLogger
 
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import plot, draw, show
-from drawnow import drawnow
+#from drawnow import drawnow
 
 logger = getLogger(__name__)
 

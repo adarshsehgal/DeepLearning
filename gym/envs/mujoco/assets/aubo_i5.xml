@@ -46,7 +46,7 @@
                 <body name="shoulder_Link" pos="0 0 0.0985" quat="-3.67321e-06 0 0 1">
                     <inertial pos="4.2237e-07 0.0063705 -0.014748" quat="0.685243 0.167203 -0.168086 0.688646" mass="1.4505" diaginertia="0.00325138 0.0032429 0.00264262" />
 			<!--Joint Range set-->
-                    <joint name="shoulder_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.00000000002 0.00000000002" />
+                    <joint name="shoulder_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.00000000002 -0.00000000001" />
                     <geom type="mesh" rgba="1 0.65098 0 1" mesh="shoulder_Link"/>
                     <body name="s_Link" pos="0 0 0">
                         <inertial pos="2.75455e-06 -0.00487873 0.0702855" quat="0.0557686 0.704908 0.0581499 0.704708" mass="0.0933503" diaginertia="0.000206938 0.000118262 0.000117274" />
@@ -55,7 +55,7 @@
                     <body name="upperArm_Link" pos="0 0.1405 0" quat="0.499998 -0.5 -0.5 -0.500002">
                         <inertial pos="0.204 4.917e-09 -0.01129" quat="0.500001 0.5 0.5 0.499999" mass="3.7898" diaginertia="0.13195 0.13086 0.0077566" />
 			<!--Joint Range set-->
-                        <joint name="upperArm_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-2 0" />
+                        <joint name="upperArm_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.5 0" />
                         <geom type="mesh" rgba="1 0.65098 0 1" mesh="upperArm_Link" />
                         <body name="f1_Link" pos="0 0 0">
                             <inertial pos="0.204 0 0.0702855" quat="4.93973e-06 0.707107 -4.93973e-06 0.707107" mass="0.186701" diaginertia="0.00855511 0.00838035 0.000241097" />
@@ -64,7 +64,7 @@
                         <body name="foreArm_Link" pos="0.408 0 0" quat="-3.67321e-06 -1 0 0">
                             <inertial pos="0.18437 7.5869e-07 0.11576" quat="0.499055 0.500937 0.501038 0.498966" mass="2.2177" diaginertia="0.042245 0.0421316 0.00194937" />
 			<!--Joint Range set-->
-                            <joint name="foreArm_joint" pos="0 0 0" axis="0 0 1" limited="true" range="0 1.5" />
+                            <joint name="foreArm_joint" pos="0 0 0" axis="0 0 1" limited="true" range="1.1 1.4" />
                             <geom type="mesh" rgba="1 0.65098 0 1" mesh="foreArm_Link" />
                             <body name="u_Link" pos="0 0 0">
                                 <inertial pos="0.379773 -1.22708e-07 0.169253" quat="-0.00196803 0.639583 0.00243454 0.768716" mass="0.0218153" diaginertia="2.37813e-05 1.42954e-05 1.40315e-05" />
