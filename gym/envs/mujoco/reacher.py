@@ -9,11 +9,18 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
     def _step(self, a):
         vec = self.get_body_com("right_gripper_link")-self.get_body_com("target")
+	#Euclidean distance between gripper and target
         reward_dist = - np.linalg.norm(vec)
+
+	#Reward for the action
         reward_ctrl = - np.square(a).sum()
+
+	#Reward for door opening
+	reward_door = 0;
+
+	#Total Reward
         reward = reward_dist + reward_ctrl
-        #reward = - np.linalg.norm(vec)
-        #print(vec)
+
         self.do_simulation(a, self.frame_skip)
         ob = self._get_obs()
 
@@ -30,7 +37,8 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         #self.viewer.cam.trackbodyid = 0
 
     def reset_model(self):
-        qpos = self.np_random.uniform(low=-0.1, high=0.1, size=self.model.nq) + self.init_qpos
+        #qpos = self.np_random.uniform(low=-0.1, high=0.1, size=self.model.nq) + self.init_qpos
+	qpos = self.init_qpos;
         while True:
             self.goal = self.np_random.uniform(low=-.2, high=.2, size=2)
             if np.linalg.norm(self.goal) < 2:
