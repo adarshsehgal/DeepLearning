@@ -32,6 +32,9 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         w2=0.2
         w3=0.6
         reward = w1*reward_dist + w2*reward_ctrl + w3*reward_door
+
+        camid = self.get_camid("tracking")
+        print(self.model.cam_pos[camid])
         
         self.do_simulation(a, self.frame_skip)
         ob = self._get_obs()
@@ -53,7 +56,7 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         qpos = self.init_qpos
         while True:
             self.goal = self.np_random.uniform(low=-.1, high=.1, size=2)
-            if np.linalg.norm(self.goal) < 0.001:
+            if np.linalg.norm(self.goal) < 0.02:
                 break
         qpos[-2:] = self.goal
         qvel = self.init_qvel + self.np_random.uniform(low=-.005, high=.005, size=self.model.nv)

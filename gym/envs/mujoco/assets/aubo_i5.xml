@@ -110,6 +110,7 @@
                                             </body>
                                         </body> -->
                                         <body name="right_gripper_link" pos="0 0 0" quat="0.5 -0.5 -0.5 -0.5">
+					    <camera name='tracking' pos='1 1 2' zaxis="1 2 3" mode='trackcom'/>
                                             <inertial pos="0 0 0" mass="0.05" diaginertia="1 1 1" />
                                             <joint name="right_gripper_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.05 -0.04" />
                                             <geom quat="4.63268e-05 -1 0 0" type="mesh" mesh="l_finger" />
@@ -169,21 +170,31 @@
             <joint armature="0" axis="0 0 1" damping="0" limited="true" name="door_z" pos="0 0 0" range="-.27 .27" ref="-.1" stiffness="0" type="hinge"/>
             <geom conaffinity="0" contype="0" name="door" pos="0 0 0" rgba="0.9 0.2 0.2 1" size=".05 .205 .505" type="box"/>
         </body> -->
-	<body name="door" pos="0.65 0 1.0" quat="1 0 0 0">
+	<body name="door" pos="0.65 -0.32 1.0" quat="0 1 0 0">
 			<joint axis="0 0 1" name="hinge" pos="0.2 0 0" limited="true" range="0 1.75" type="hinge"/>
 			<geom name="door_surface" rgba="0.9 0.2 0.2 1" size="0.02 0.2 0.5" type="box"/>
 			<!--<body name="handler" pos="-0.15 -0.05 0.0">
 				<geom rgba="1 0.65098 0 1" fromto="0.0 0. 0.0 0.0 0. 0.1" size="0.02" type="cylinder"/>
 				<joint name = "hanlder_joint" axis="0 1 0" limited="true" pos="0 0 0" range="-.1 0" stiffness="0" type="slide"/>
 			</body> -->
-			<body name="target" pos="0 -0.2 0.0">
-            			<joint armature="0" axis="1 0 0" damping="0" limited="true" name="target_x" pos="0 0 0" range="-.000027 .0000027" ref=".1" stiffness="0" type="slide"/>
+			<body name="handle_1" pos="-0.05 -0.1 0">
+				<inertial pos="0.5 0.5 0.5" quat="0 0 0 1" mass="1.5" diaginertia="0.0265972 0.0265972 0.0265972" />
+				<geom conaffinity="0" contype="0" name="handle_1" pos="0 0 0" rgba="0 1 0 1" size=".03 .02 .02" type="box"/>
+			</body>
+			<body name="handle_2" pos="-0.05 -0.2 0.0">
+				<joint axis="1 0 0" name="handle_joint" pos="0.2 0 0" limited="true" range="-1.0 0" type="hinge"/>
+				<inertial pos="0.5 0.5 0.5" quat="0 0 0 1" mass="1.5" diaginertia="0.0265972 0.0265972 0.0265972" />
+            			<!-- <joint armature="0" axis="1 0 0" damping="0" limited="true" name="target_x" pos="0 0 0" range="-.000027 .0000027" ref=".1" stiffness="0" type="slide"/>
             			<joint armature="0" axis="0 1 0" damping="0" limited="true" name="target_y" pos="0 0 0" range="-.000027 .000027" ref="-.1" stiffness="0" type="slide"/>
-            			<joint armature="0" axis="0 0 1" damping="0" limited="true" name="target_z" pos="0 0 0" range="-.000027 .000027" ref="-.1" stiffness="0" type="hinge"/>
-            			<geom conaffinity="0" contype="0" name="target" pos="0 0 0" rgba="0.9 0.2 0.2 1" size=".05 .05 .05" type="box"/>
+            			<joint armature="0" axis="0 0 1" damping="0" limited="true" name="target_z" pos="0 0 0" range="-.000027 .000027" ref="-.1" stiffness="0" type="hinge"/> -->
+            			<geom conaffinity="0" contype="0" name="handle_2" pos="0 0 0" rgba="0 1 0 1" size=".02 .1 .02" type="box"/>
         		</body>
+			<body name="target" pos="-0.1 0 0.02">
+				<geom conaffinity="0" contype="0" name="target" pos="0 0 0" rgba="0.9 0.2 0.2 1" size="0.001 0.001 0.001" type="box"/>
+			</body>
 
 	</body>
+	
     </worldbody>
 	
 
