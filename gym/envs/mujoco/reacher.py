@@ -33,9 +33,9 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         w3=0.6
         reward = w1*reward_dist + w2*reward_ctrl + w3*reward_door
 
-        camid = self.get_camid("tracking")
-        print(self.model.cam_pos[camid])
-        
+        #camid = self.get_cam("gripper_camera")
+        #print(self.model.cam_pos[camid])
+                
         self.do_simulation(a, self.frame_skip)
         ob = self._get_obs()
 
