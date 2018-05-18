@@ -2,6 +2,10 @@ import numpy as np
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 import math
+import pyautogui
+import imutils
+import cv2
+import time
 
 class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def __init__(self):
@@ -32,6 +36,13 @@ class ReacherEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         w2=0.2
         w3=0.6
         reward = w1*reward_dist + w2*reward_ctrl + w3*reward_door
+
+        t = time.localtime()
+        timestamp = time.strftime('%b-%d-%Y_%H%M%S', t)
+        image = pyautogui.screenshot()
+        image = cv2.cvtColor(np.array(image), cv2.COLOR_RGB2BGR)
+        resizedimage = cv2.resize(image,(256,256))
+        cv2.imwrite("/home/labuser/DeepLearning/screenshots/"+str(timestamp)+".jpg", resizedimage)
         
         #camid = self.get_cam("gripper_camera")
         #print(self.model.cam_pos[camid])
